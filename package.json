@@ -1,0 +1,22 @@
+{
+  "name": "ceres",
+  "version": "1.0.0",
+  "description": "CERES",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ceres-Coin/CERES.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ceres-Coin/CERES/issues"
+  },
+  "homepage": "https://github.com/Ceres-Coin/CERES#readme"
+}
