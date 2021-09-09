@@ -56,4 +56,31 @@ contract('contracts/Ceres/CeresDemo.sol', async (accounts) => {
         const EXPECTED_VALUE = false;
         expect(await simpleFundInstance.isOperator.call({from: INPUT_VALUE})).to.equal(EXPECTED_VALUE)
     });
+
+    it('check simpleFundInstance.operator(), ITS VALUE IS OWNER', async () => {
+        const EXPECTED_VALUE = OWNER;
+        expect(await simpleFundInstance.operator.call()).to.equal(EXPECTED_VALUE);
+    });
+
+    it('check simpleFundInstance.owner(), ITS VALUE IS OWNER', async () => {
+        expect(await simpleFundInstance.owner.call()).to.equal(OWNER);
+    });
+
+    // COMPLEX TEST CASES
+    it ('check simpleFundInstance.transferOperator', async() => {
+        // BEFORE PHRASE
+        expect(await simpleFundInstance.isOperator.call({from: OWNER})).to.equal(true);
+        expect(await simpleFundInstance.isOperator.call({from: TEST_ACCOUNT})).to.equal(false);
+
+        // ACTION PHRASE
+        await simpleFundInstance.transferOperator(TEST_ACCOUNT,{from: OWNER});
+        // ASSERTION
+        expect(await simpleFundInstance.isOperator.call({from: OWNER})).to.equal(false);
+        expect(await simpleFundInstance.isOperator.call({from: TEST_ACCOUNT})).to.equal(true);
+
+        // ROLL BACK CODE
+        await simpleFundInstance.transferOperator(OWNER,{from: OWNER});
+        expect(await simpleFundInstance.isOperator.call({from: OWNER})).to.equal(true);
+        expect(await simpleFundInstance.isOperator.call({from: TEST_ACCOUNT})).to.equal(false);
+    });
 });
