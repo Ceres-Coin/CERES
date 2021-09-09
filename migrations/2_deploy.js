@@ -30,5 +30,6 @@ module.exports = async function(deployer,network,accounts) {
 	console.log(chalk.red.bold(`account6: ${account6}`));
 	console.log(chalk.red.bold(`account7: ${account7}`));
 
-    
+    const FIVE_MILLION_DEC18 = new BigNumber("5000000e18");
+	const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 };
