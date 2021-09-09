@@ -1,4 +1,7 @@
 # Build and Release Folders
+.secret
+node_modules
+build
 bin-debug/
 bin-release/
 [Oo]bj/
