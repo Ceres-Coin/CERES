@@ -7,7 +7,10 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "rm -rf build & truffle compile --all",
+    "migration": "truffle migrate --network development --skip-dry-run --reset",
+    "migration_bsc": "truffle migrate --network testnet --skip-dry-run --reset",
+    "test": "truffle test"
   },
   "repository": {
     "type": "git",
