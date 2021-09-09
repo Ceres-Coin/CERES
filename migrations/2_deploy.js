@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const chalk = require('chalk');
-// const SimpleFund = artifacts.require('SimpleERCFund');
+const SimpleFund = artifacts.require('SimpleERCFund');
 
 module.exports = async function(deployer,network,accounts) {
   // Set the Network Settings
@@ -35,7 +35,7 @@ module.exports = async function(deployer,network,accounts) {
 	const ONE_HUNDRED_MILLION_DEC18 = new BigNumber("100000000e18");
 
     // DEPLOY SimpleERCFund
-	// await deployer.deploy(SimpleFund,{from: OWNER});
-	// const simplefundInstance = await SimpleFund.deployed();
-	// console.log(chalk.red.bold(`simplefundInstance: ${simplefundInstance.address}`));
+	await deployer.deploy(SimpleFund,{from: OWNER});
+	const simplefundInstance = await SimpleFund.deployed();
+	console.log(chalk.red.bold(`simplefundInstance: ${simplefundInstance.address}`));
 };
